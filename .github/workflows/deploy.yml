@@ -5,6 +5,12 @@ on:
     branches:
       - master
   workflow_dispatch:
+    inputs:
+      environment:
+        description: "GitHub Environment da usare per il deploy"
+        required: false
+        default: prod
+        type: string
 
 env:
   IMAGE_NAME: ghcr.io/${{ github.repository }}
@@ -53,6 +59,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build-and-push
+    environment: ${{ github.event.inputs.environment || 'prod' }}
 
     steps:
       - name: Validate deploy configuration
