@@ -16,6 +16,7 @@ env:
   IMAGE_NAME: ghcr.io/${{ github.repository }}
   CONTAINER_NAME: festadellespighe
   APP_PORT: ${{ vars.APP_PORT || secrets.APP_PORT }}
+  DEPLOY_DIR: ${{ vars.DEPLOY_DIR || secrets.DEPLOY_DIR }}
 
 jobs:
   build-and-push:
@@ -70,6 +71,7 @@ jobs:
           GHCR_USERNAME: ${{ vars.GHCR_USERNAME || secrets.GHCR_USERNAME }}
           GHCR_TOKEN: ${{ vars.GHCR_TOKEN || secrets.GHCR_TOKEN }}
           APP_PORT: ${{ vars.APP_PORT || secrets.APP_PORT || '3000' }}
+          DEPLOY_DIR: ${{ vars.DEPLOY_DIR || secrets.DEPLOY_DIR || '$HOME/festadellespighe' }}
         run: |
           set -e
           missing=0
@@ -85,7 +87,7 @@ jobs:
             exit 1
           fi
 
-          echo "Deploy configuration looks valid. APP_PORT=${APP_PORT}"
+          echo "Deploy configuration looks valid. APP_PORT=${APP_PORT} DEPLOY_DIR=${DEPLOY_DIR}"
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
@@ -93,6 +95,7 @@ jobs:
           IMAGE_NAME: ${{ env.IMAGE_NAME }}
           CONTAINER_NAME: ${{ env.CONTAINER_NAME }}
           APP_PORT: ${{ env.APP_PORT }}
+          DEPLOY_DIR: ${{ env.DEPLOY_DIR }}
           GHCR_USERNAME: ${{ vars.GHCR_USERNAME || secrets.GHCR_USERNAME }}
           GHCR_TOKEN: ${{ vars.GHCR_TOKEN || secrets.GHCR_TOKEN }}
         with:
@@ -100,11 +103,12 @@ jobs:
           username: ${{ vars.SSH_USER || secrets.SSH_USER }}
           key: ${{ vars.SSH_PRIVATE_KEY || secrets.SSH_PRIVATE_KEY }}
           port: ${{ vars.SSH_PORT || secrets.SSH_PORT || 22 }}
-          envs: IMAGE_NAME,CONTAINER_NAME,APP_PORT,GHCR_USERNAME,GHCR_TOKEN
+          envs: IMAGE_NAME,CONTAINER_NAME,APP_PORT,DEPLOY_DIR,GHCR_USERNAME,GHCR_TOKEN
           script: |
             set -e
 
             APP_PORT="${APP_PORT:-3000}"
+            DEPLOY_DIR="${DEPLOY_DIR:-$HOME/festadellespighe}"
 
             echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USERNAME" --password-stdin
 
@@ -117,8 +121,8 @@ jobs:
               exit 1
             fi
 
-            mkdir -p /opt/festadellespighe
-            cat > /opt/festadellespighe/docker-compose.yml <<EOF
+            mkdir -p "$DEPLOY_DIR"
+            cat > "$DEPLOY_DIR/docker-compose.yml" <<EOF
             services:
               app:
                 image: ${IMAGE_NAME}:latest
@@ -130,7 +134,7 @@ jobs:
                   PORT: "${APP_PORT}"
             EOF
 
-            cd /opt/festadellespighe
+            cd "$DEPLOY_DIR"
             $DC pull
             $DC up -d --remove-orphans
 
