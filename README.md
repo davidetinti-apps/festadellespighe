@@ -1,6 +1,6 @@
 # 🌾 Festa delle Spighe - Villafontana
 
-Sito web della Festa delle Spighe, sagra parrocchiale di Villafontana (VR).
+Sito web della Festa delle Spighe, sagra parrocchiale di Villafontana.
 
 ## Struttura
 
