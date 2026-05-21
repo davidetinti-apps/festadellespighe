@@ -55,6 +55,31 @@ jobs:
     needs: build-and-push
 
     steps:
+      - name: Validate deploy configuration
+        env:
+          SSH_HOST: ${{ vars.SSH_HOST || secrets.SSH_HOST }}
+          SSH_USER: ${{ vars.SSH_USER || secrets.SSH_USER }}
+          SSH_PRIVATE_KEY: ${{ vars.SSH_PRIVATE_KEY || secrets.SSH_PRIVATE_KEY }}
+          GHCR_USERNAME: ${{ vars.GHCR_USERNAME || secrets.GHCR_USERNAME }}
+          GHCR_TOKEN: ${{ vars.GHCR_TOKEN || secrets.GHCR_TOKEN }}
+          APP_PORT: ${{ vars.APP_PORT || secrets.APP_PORT || '3000' }}
+        run: |
+          set -e
+          missing=0
+
+          for key in SSH_HOST SSH_USER SSH_PRIVATE_KEY GHCR_USERNAME GHCR_TOKEN; do
+            if [ -z "${!key}" ]; then
+              echo "::error::Missing $key. Add it as Repository Variable or Secret."
+              missing=1
+            fi
+          done
+
+          if [ "$missing" -ne 0 ]; then
+            exit 1
+          fi
+
+          echo "Deploy configuration looks valid. APP_PORT=${APP_PORT}"
+
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         env:
