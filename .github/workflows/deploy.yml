@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 env:
@@ -76,16 +76,30 @@ jobs:
 
             echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USERNAME" --password-stdin
 
-            docker pull "$IMAGE_NAME:latest"
+            if docker compose version >/dev/null 2>&1; then
+              DC="docker compose"
+            elif command -v docker-compose >/dev/null 2>&1; then
+              DC="docker-compose"
+            else
+              echo "Docker Compose non trovato sul server"
+              exit 1
+            fi
 
-            docker stop "$CONTAINER_NAME" || true
-            docker rm "$CONTAINER_NAME" || true
+            mkdir -p /opt/festadellespighe
+            cat > /opt/festadellespighe/docker-compose.yml <<EOF
+            services:
+              app:
+                image: ${IMAGE_NAME}:latest
+                container_name: ${CONTAINER_NAME}
+                restart: unless-stopped
+                ports:
+                  - "${APP_PORT}:${APP_PORT}"
+                environment:
+                  PORT: "${APP_PORT}"
+            EOF
 
-            docker run -d \
-              --name "$CONTAINER_NAME" \
-              --restart unless-stopped \
-              -e PORT="$APP_PORT" \
-              -p "$APP_PORT:$APP_PORT" \
-              "$IMAGE_NAME:latest"
+            cd /opt/festadellespighe
+            $DC pull
+            $DC up -d --remove-orphans
 
             docker image prune -f
