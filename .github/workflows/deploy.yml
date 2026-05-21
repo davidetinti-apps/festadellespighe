@@ -9,7 +9,7 @@ on:
 env:
   IMAGE_NAME: ghcr.io/${{ github.repository }}
   CONTAINER_NAME: festadellespighe
-  APP_PORT: ${{ secrets.APP_PORT }}
+  APP_PORT: ${{ vars.APP_PORT || secrets.APP_PORT }}
 
 jobs:
   build-and-push:
@@ -61,13 +61,13 @@ jobs:
           IMAGE_NAME: ${{ env.IMAGE_NAME }}
           CONTAINER_NAME: ${{ env.CONTAINER_NAME }}
           APP_PORT: ${{ env.APP_PORT }}
-          GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
-          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GHCR_USERNAME: ${{ vars.GHCR_USERNAME || secrets.GHCR_USERNAME }}
+          GHCR_TOKEN: ${{ vars.GHCR_TOKEN || secrets.GHCR_TOKEN }}
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT || 22 }}
+          host: ${{ vars.SSH_HOST || secrets.SSH_HOST }}
+          username: ${{ vars.SSH_USER || secrets.SSH_USER }}
+          key: ${{ vars.SSH_PRIVATE_KEY || secrets.SSH_PRIVATE_KEY }}
+          port: ${{ vars.SSH_PORT || secrets.SSH_PORT || 22 }}
           envs: IMAGE_NAME,CONTAINER_NAME,APP_PORT,GHCR_USERNAME,GHCR_TOKEN
           script: |
             set -e
