@@ -139,10 +139,10 @@ function MenuSection({ title, subtitle, menu }: { title: string; subtitle: strin
                   {piatto.prezzo && (
                     <span className="font-semibold text-olive ml-3 text-sm whitespace-nowrap">€{piatto.prezzo}</span>
                   )}
-                    */}
                   {piatto.nota && (
                     <span className="text-text-light ml-3 text-sm italic whitespace-nowrap">{piatto.nota}</span>
                   )}
+                      */}
                 </li>
               ))}
             </ul>
