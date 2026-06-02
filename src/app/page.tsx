@@ -76,7 +76,7 @@ export default function Home() {
                 <span className="text-2xl">🎁</span>
               </div>
               <h3 className="font-display font-bold text-olive-dark text-sm uppercase tracking-wide">Tanti Premi</h3>
-              <p className="text-xs text-text-light mt-1">da vincere ogni sera con la lotteria</p>
+              <p className="text-xs text-text-light mt-1">da vincere ogni sera con la lotteria e la pesca</p>
             </div>
             <div className="scroll-animate text-center" style={{ transitionDelay: "200ms" }}>
               <div className="w-16 h-16 bg-cream rounded-full flex items-center justify-center mx-auto mb-3 border border-warm-dark hover:scale-110 transition-transform">
