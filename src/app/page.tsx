@@ -121,11 +121,11 @@ export default function Home() {
               </div>
               <div className="space-y-4">
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-terracotta rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">19:00</span>
+                  <span className="text-xs font-bold text-white bg-terracotta rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">19:00</span>
                   <p className="text-sm text-text leading-relaxed">Apertura bar con birra, cocktail, piadine e arrosticini</p>
                 </div>
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-terracotta rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">21:00</span>
+                  <span className="text-xs font-bold text-white bg-terracotta rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">21:00</span>
                   <p className="text-sm text-text leading-relaxed"><strong>&ldquo;QUIZZAMI&rdquo;</strong>, date un nome alla vostra squadra e sfidate le altre come in un vero quiz show a premi! (Gradita prenotazione tramite messaggio sui profili social della festa)</p>
                 </div>
               </div>
@@ -142,27 +142,27 @@ export default function Home() {
               </div>
               <div className="space-y-4">
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-gold rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">16:30</span>
+                  <span className="text-xs font-bold text-white bg-gold rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">16:30</span>
                   <p className="text-sm text-text leading-relaxed">Inizio esposizione trattori d&apos;epoca</p>
                 </div>
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-gold rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">17:30</span>
+                  <span className="text-xs font-bold text-white bg-gold rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">17:30</span>
                   <p className="text-sm text-text leading-relaxed">Saggio di fine anno del polo per l&apos;infanzia &ldquo;S. Angelo Custode&rdquo;</p>
                 </div>
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-gold rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">18:30</span>
+                  <span className="text-xs font-bold text-white bg-gold rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">18:30</span>
                   <p className="text-sm text-text leading-relaxed">Intrattenimento per bambini con <strong>&ldquo;L&apos;Arcobaleno in Mongolfiera&rdquo;</strong></p>
                 </div>
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-gold rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">19:00</span>
+                  <span className="text-xs font-bold text-white bg-gold rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">19:00</span>
                   <p className="text-sm text-text leading-relaxed">Apertura stand gastronomico con menù di carne e pesce</p>
                 </div>
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-gold rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">21:00</span>
+                  <span className="text-xs font-bold text-white bg-gold rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">21:00</span>
                   <p className="text-sm text-text leading-relaxed">Proiezione foto attività polo per l&apos;infanzia &ldquo;S. Angelo Custode&rdquo;</p>
                 </div>
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-gold rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">21:30</span>
+                  <span className="text-xs font-bold text-white bg-gold rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">21:30</span>
                   <p className="text-sm text-text leading-relaxed">Estrazione della lotteria</p>
                 </div>
               </div>
@@ -179,27 +179,27 @@ export default function Home() {
               </div>
               <div className="space-y-4">
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-olive rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">09:30</span>
+                  <span className="text-xs font-bold text-white bg-olive rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">09:30</span>
                   <p className="text-sm text-text leading-relaxed">Santa Messa</p>
                 </div>
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-olive rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">10:30</span>
+                  <span className="text-xs font-bold text-white bg-olive rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">10:30</span>
                   <p className="text-sm text-text leading-relaxed">Aperitivo e stuzzichini nel cortile parrocchiale</p>
                 </div>
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-olive rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">17:30</span>
+                  <span className="text-xs font-bold text-white bg-olive rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">17:30</span>
                   <p className="text-sm text-text leading-relaxed">Recita comunitaria dei vespri nel cortile della parrocchia</p>
                 </div>
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-olive rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">18:00</span>
+                  <span className="text-xs font-bold text-white bg-olive rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">18:00</span>
                   <p className="text-sm text-text leading-relaxed"><strong>&ldquo;Pump Track&rdquo;</strong> circuito ad ostacoli per bimbi in bicicletta</p>
                 </div>
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-olive rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">19:00</span>
+                  <span className="text-xs font-bold text-white bg-olive rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">19:00</span>
                   <p className="text-sm text-text leading-relaxed">Apertura stand gastronomico con menù di carne e pesce</p>
                 </div>
                 <div className="flex gap-3 items-start group">
-                  <span className="text-xs font-bold text-white bg-olive rounded px-1.5 py-0.5 min-w-[42px] text-center mt-0.5 group-hover:scale-110 transition-transform">20:30</span>
+                  <span className="text-xs font-bold text-white bg-olive rounded px-1.5 py-0.5 w-[52px] shrink-0 text-center mt-0.5 group-hover:scale-110 transition-transform">20:30</span>
                   <p className="text-sm text-text leading-relaxed">Musica live con <strong>&ldquo;The MamaMusic Live&rdquo;</strong></p>
                 </div>
               </div>
