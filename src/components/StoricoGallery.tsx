@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-const years = [2026, 2025, 2024, 2023, 2022, 2019, 2018, 2017, 2016, 2015, 2014];
+const years = [2026, 2025, 2024, 2023, 2022, 2019, 2018, 2017, 2016, 2015, 2014, 2013];
 
 export default function StoricoGallery() {
   const [selected, setSelected] = useState<number | null>(null);
