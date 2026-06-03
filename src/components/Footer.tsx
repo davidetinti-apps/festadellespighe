@@ -40,7 +40,7 @@ export default function Footer() {
         <div className="border-t border-white/20 pt-6 text-xs text-white/50 space-y-1">
           <p>Parrocchia Santa Maria in Garda – Villa Fontana</p>
           <p>
-            Made with ❤️ by Davide Tinti.
+            Made by Davide Tinti.
             {" "}
             <a
               href="https://www.instagram.com/davide_tinti_/"
