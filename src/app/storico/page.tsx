@@ -16,7 +16,7 @@ export default function StoricoPage() {
           </h1>
           <p className="text-center text-text-light text-lg mb-12 max-w-2xl mx-auto">
             Un viaggio attraverso le edizioni della Festa delle Spighe,
-            dalla prima edizione del 2014 ad oggi.
+            dalla prima edizione del 2013 ad oggi.
           </p>
 
           <StoricoGallery />
