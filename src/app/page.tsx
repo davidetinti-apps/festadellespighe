@@ -29,13 +29,13 @@ export default function Home() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 py-16 text-center">
           <p className="animate-fade-in-up uppercase tracking-[0.2em] text-olive text-sm font-medium mb-4">
-            44ª Edizione · Villa Fontana
+            44ª Edizione · Conclusa · Villa Fontana
           </p>
           <h1 className="animate-fade-in-up delay-200 font-display text-6xl md:text-8xl lg:text-9xl font-black text-olive-dark leading-[0.85] mb-6 drop-shadow-sm">
             FESTA<br />DELLE<br />SPIGHE
           </h1>
           {/* Date badge */}
-          <div className="animate-scale-in delay-400 inline-flex items-center justify-center w-36 h-36 rounded-full bg-olive-dark text-white mb-6 shadow-xl">
+          <div className="animate-scale-in delay-400 inline-flex items-center justify-center w-36 h-36 rounded-full bg-olive-dark/60 text-white mb-6 shadow-xl">
             <div className="text-center">
               <p className="text-lg font-bold leading-tight">19 · 20 · 21</p>
               <p className="text-xs uppercase tracking-wider">Giugno</p>
@@ -43,65 +43,75 @@ export default function Home() {
             </div>
           </div>
           <p className="animate-fade-in-up delay-500 font-script text-2xl md:text-3xl text-brown italic mb-8">
-            Tradizione, divertimento e<br />tante specialità da gustare
+            Grazie a tutti per questa splendida edizione!
           </p>
-          <div className="animate-fade-in-up delay-600">
+          <div className="animate-fade-in-up delay-600 flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/storico"
+              className="inline-flex items-center justify-center gap-2 bg-olive-dark hover:bg-olive text-white font-bold py-3.5 px-9 rounded-full uppercase tracking-wide text-sm transition-all shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              Sfoglia le edizioni passate
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
             <a
               href="#programma"
-              className="inline-flex items-center gap-2 bg-olive-dark hover:bg-olive text-white font-bold py-3.5 px-9 rounded-full uppercase tracking-wide text-sm transition-all shadow-lg hover:shadow-xl hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 border-2 border-olive-dark text-olive-dark font-bold py-3.5 px-9 rounded-full uppercase tracking-wide text-sm transition-all hover:bg-olive-dark hover:text-white hover:scale-105"
             >
-              Scopri il programma
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
+              Rivedi il programma
             </a>
           </div>
         </div>
-
       </section>
 
-      {/* Info Cards */}
-      <section className="py-14 bg-warm border-t border-warm-dark">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="scroll-animate text-center" style={{ transitionDelay: "0ms" }}>
-              <div className="w-16 h-16 bg-cream rounded-full flex items-center justify-center mx-auto mb-3 border border-warm-dark hover:scale-110 transition-transform">
-                <span className="text-2xl">🍺</span>
-              </div>
-              <h3 className="font-display font-bold text-olive-dark text-sm uppercase tracking-wide">Angolo Bar</h3>
-              <p className="text-xs text-text-light mt-1">con piadine, birra, gelati e tanto altro</p>
-            </div>
-            <div className="scroll-animate text-center" style={{ transitionDelay: "100ms" }}>
-              <div className="w-16 h-16 bg-cream rounded-full flex items-center justify-center mx-auto mb-3 border border-warm-dark hover:scale-110 transition-transform">
-                <span className="text-2xl">🎁</span>
-              </div>
-              <h3 className="font-display font-bold text-olive-dark text-sm uppercase tracking-wide">Tanti Premi</h3>
-              <p className="text-xs text-text-light mt-1">da vincere ogni sera con la lotteria e la pesca</p>
-            </div>
-            <div className="scroll-animate text-center" style={{ transitionDelay: "200ms" }}>
-              <div className="w-16 h-16 bg-cream rounded-full flex items-center justify-center mx-auto mb-3 border border-warm-dark hover:scale-110 transition-transform">
-                <span className="text-2xl">🚜</span>
-              </div>
-              <h3 className="font-display font-bold text-olive-dark text-sm uppercase tracking-wide">Esposizione</h3>
-              <p className="text-xs text-text-light mt-1">trattori d&apos;epoca</p>
-            </div>
-            <div className="scroll-animate text-center" style={{ transitionDelay: "300ms" }}>
-              <div className="w-16 h-16 bg-cream rounded-full flex items-center justify-center mx-auto mb-3 border border-warm-dark hover:scale-110 transition-transform">
-                <span className="text-2xl">🎉</span>
-              </div>
-              <h3 className="font-display font-bold text-olive-dark text-sm uppercase tracking-wide">Attività</h3>
-              <p className="text-xs text-text-light mt-1">per grandi e piccoli tutti i giorni</p>
+      {/* Thank You Section */}
+      <section className="py-16 bg-warm border-t border-warm-dark">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <div className="scroll-animate">
+            <p className="uppercase tracking-[0.2em] text-olive text-xs font-medium mb-3">
+              Villa Fontana, Giugno 2026
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-olive-dark mb-5">
+              Un&apos;altra edizione nel cuore
+            </h2>
+            <p className="text-text-light leading-relaxed mb-8 max-w-xl mx-auto">
+              La 44ª Festa delle Spighe è andata. Grazie a tutti i volontari, alle famiglie
+              e a chi ha scelto di trascorrere questi tre giorni con noi.
+              Ci vediamo nel 2027 per la 45ª edizione!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                href="/storico"
+                className="inline-flex items-center justify-center gap-2 bg-olive-dark hover:bg-olive text-white font-bold py-3 px-8 rounded-full uppercase tracking-wide text-sm transition-all shadow-lg hover:scale-105"
+              >
+                Le edizioni passate
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+              <a
+                href="https://www.instagram.com/festadellespighe/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 border-2 border-olive-dark text-olive-dark font-bold py-3 px-8 rounded-full uppercase tracking-wide text-sm hover:bg-olive-dark hover:text-white transition-all hover:scale-105"
+              >
+                Seguici su Instagram
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Il Programma */}
+      {/* Il Programma 2026 — archivio */}
       <section className="py-20 bg-warm" id="programma">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="scroll-animate font-display text-4xl md:text-5xl font-bold text-center text-olive-dark mb-14 uppercase tracking-wide">
-            Il Programma
+          <h2 className="scroll-animate font-display text-4xl md:text-5xl font-bold text-center text-olive-dark mb-2 uppercase tracking-wide">
+            Il Programma 2026
           </h2>
+          <p className="scroll-animate text-center text-text-light text-sm mb-14">
+            Archivio dell&apos;edizione conclusa
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Venerdì */}
@@ -234,58 +244,14 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 flex items-end justify-center pb-6 pointer-events-none">
           <Link
-            href="/menu"
+            href="/storico"
             className="pointer-events-auto inline-flex items-center gap-2 bg-warm/95 backdrop-blur border-2 border-olive-dark text-olive-dark font-bold py-3 px-8 rounded-full uppercase tracking-wide text-sm hover:bg-olive-dark hover:text-white transition-all shadow-lg hover:scale-105"
           >
-            Scopri gli stand e le specialità
+            Sfoglia le edizioni passate
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
-        </div>
-      </section>
-
-      {/* Info Utili */}
-      <section className="py-16 bg-warm">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="scroll-animate bg-white rounded-2xl p-5 border border-warm-dark flex items-start gap-3 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" style={{ transitionDelay: "0ms" }}>
-              <div className="w-10 h-10 rounded-full bg-terracotta/10 flex items-center justify-center shrink-0">
-                <span className="text-lg">📍</span>
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-olive-dark text-sm uppercase">Dove siamo</h3>
-                <p className="text-xs text-text-light mt-1">Via Ercole dalla Valle, 15 Parrocchia di Santa Maria in Garda di Villa Fontana</p>
-              </div>
-            </div>
-            <div className="scroll-animate bg-white rounded-2xl p-5 border border-warm-dark flex items-start gap-3 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" style={{ transitionDelay: "100ms" }}>
-              <div className="w-10 h-10 rounded-full bg-terracotta/10 flex items-center justify-center shrink-0">
-                <span className="text-lg">🎶</span>
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-olive-dark text-sm uppercase">Musica Live</h3>
-                <p className="text-xs text-text-light mt-1">Serate con musica dal vivo e intrattenimento</p>
-              </div>
-            </div>
-            <div className="scroll-animate bg-white rounded-2xl p-5 border border-warm-dark flex items-start gap-3 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" style={{ transitionDelay: "200ms" }}>
-              <div className="w-10 h-10 rounded-full bg-terracotta/10 flex items-center justify-center shrink-0">
-                <span className="text-lg">👨‍👩‍👧‍👦</span>
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-olive-dark text-sm uppercase">Per tutta la famiglia</h3>
-                <p className="text-xs text-text-light mt-1">Attività e intrattenimento per grandi e piccini</p>
-              </div>
-            </div>
-            <div className="scroll-animate bg-white rounded-2xl p-5 border border-warm-dark flex items-start gap-3 hover:shadow-lg hover:-translate-y-1 transition-all duration-300" style={{ transitionDelay: "300ms" }}>
-              <div className="w-10 h-10 rounded-full bg-terracotta/10 flex items-center justify-center shrink-0">
-                <span className="text-lg">🍽️</span>
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-olive-dark text-sm uppercase">Cibo per tutti</h3>
-                <p className="text-xs text-text-light mt-1">Stand gastronomico con specialità di carne e pesce</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </>

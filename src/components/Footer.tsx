@@ -4,10 +4,10 @@ export default function Footer() {
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 py-16 text-center">
         <p className="font-script text-4xl md:text-5xl text-gold mb-4 animate-float">
-          Vi aspettiamo!
+          Grazie a tutti!
         </p>
         <p className="text-white/80 text-sm mb-8">
-          19 · 20 · 21 Giugno 2026 · Villa Fontana
+          45ª edizione in arrivo nel 2027 · Villa Fontana
         </p>
 
         {/* Social */}
