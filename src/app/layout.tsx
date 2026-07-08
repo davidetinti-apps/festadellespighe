@@ -22,13 +22,13 @@ const dancing = Dancing_Script({
 });
 
 export const metadata: Metadata = {
-  title: "Festa delle Spighe 2026 - Villa Fontana",
+  title: "Festa delle Spighe - Villa Fontana",
   description:
-    "44ª Edizione - Sagra parrocchiale di Villa Fontana. 19-20-21 Giugno 2026 - Stand gastronomico, bar, musica, quiz show e tanto divertimento!",
+    "La 44ª Festa delle Spighe è conclusa. Grazie a tutti! Ci vediamo nel 2027 per la 45ª edizione - Sagra parrocchiale di Villa Fontana.",
   openGraph: {
-    title: "Festa delle Spighe 2026",
+    title: "Festa delle Spighe - Villa Fontana",
     description:
-      "Sagra parrocchiale di Villa Fontana - 19-20-21 Giugno 2026",
+      "44ª Edizione conclusa · Ci vediamo nel 2027 per la 45ª edizione",
     url: "https://festadellespighe.parrocchia-villafontana.it",
     siteName: "Festa delle Spighe",
     locale: "it_IT",
