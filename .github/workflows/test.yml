@@ -1,0 +1,51 @@
+# Il cancello. Un lint rosso o una build che non compila fermano tutto: gira a ogni
+# push e la richiama release.yml sul tag prima di costruire l'immagine, quindi una versione rossa non arriva in
+# produzione.
+name: test
+
+on:
+  push:
+  workflow_call:
+    inputs:
+      ref:
+        description: Tag da provare
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Lint e build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Build
+        run: npm run build
+
+  # release-please conta solo i commit con il prefisso (fix:, feat:, …): uno senza non finisce in nessuna versione.
+  # Non ferma niente, ma lo dice subito invece di lasciarlo scoprire quando la release non arriva.
+  commit:
+    name: Prefisso dei commit
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          COMMITS: ${{ toJSON(github.event.commits) }}
+        run: |
+          echo "$COMMITS" | jq -r '.[] | select(.message | startswith("Merge ") | not) | .message | split("\n")[0]' |
+          while IFS= read -r m; do
+            if ! printf '%s' "$m" | grep -qE '^(feat|fix|perf|refactor|docs|test|build|ci|chore|style|revert)(\([^)]+\))?!?: '; then
+              echo "::warning::Commit senza prefisso, non entrerà in una release: $m"
+            fi
+          done

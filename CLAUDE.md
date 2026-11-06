@@ -160,13 +160,19 @@ Add to the `menuData` array in `src/app/menu/page.tsx` following the `MenuCatego
 
 ## Deployment
 
-Production build uses Docker standalone output (`output: "standalone"` in `next.config.ts`). CI/CD via GitHub Actions:
+Production build uses Docker standalone output (`output: "standalone"` in `next.config.ts`). Releases go through
+release-please (repository `davidetinti-apps/festadellespighe`):
 
-1. Build & push Docker image to GitHub Container Registry (`ghcr.io`)
-2. SSH into production server, pull image, restart via `docker compose`
+1. Every push to `master` runs lint and build (`test.yml`) and updates the release PR (version and changelog from the
+   commit prefixes: `fix:` → patch, `feat:` → minor). A commit without a prefix ends up in no release.
+2. Merging the release PR creates the tag `vX.Y.Z`; lint and build run again on it, the image
+   `ghcr.io/davidetinti-apps/festadellespighe:vX.Y.Z` is pushed, and the organization's self-hosted runner `home1`
+   deploys it on the server with `sudo app-deploy festadellespighe vX.Y.Z` (it writes `APP_VERSION` into the app's
+   `.env`, pulls, restarts, checks that the site answers 200 and rolls back to the previous version otherwise).
+3. To redeploy an older version: Actions → deploy → Run workflow with the tag.
 
-Relevant GitHub secrets: `SSH_HOST`, `SSH_USER`, `SSH_PRIVATE_KEY`, `GHCR_USERNAME`, `GHCR_TOKEN`
-Optional variables: `APP_PORT` (default 3000), `DEPLOY_DIR`
+No SSH, no deploy secrets in the repository. Server config: `/etc/app-deploy/festadellespighe.conf`; the site listens
+on port 3033.
 
 To build locally:
 ```bash

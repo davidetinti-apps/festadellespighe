@@ -46,8 +46,9 @@ Puoi cambiare porta impostando la variabile `PORT`:
 PORT=4000 node .next/standalone/server.js
 ```
 
-Per deploy Docker tramite GitHub Actions, imposta il secret `APP_PORT` nel repository (es. `4000`).
-Il workflow usera quella porta sia dentro il container sia nella publish (`-p APP_PORT:APP_PORT`).
+In produzione si pubblica per versioni: unire la PR di release di release-please crea il tag `vX.Y.Z`, e il runner
+del server pubblica l'immagine `ghcr.io/davidetinti-apps/festadellespighe:vX.Y.Z` (dettagli in `CLAUDE.md`,
+sezione Deployment). I commit devono iniziare con `fix:` o `feat:` per entrare in una release.
 
 ### Nginx (reverse proxy)
 
