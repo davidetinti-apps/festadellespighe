@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   release-please:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, home1]
     permissions:
       contents: write
       pull-requests: write
@@ -33,7 +33,7 @@ jobs:
 
   image:
     needs: [release-please, test]
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, home1]
     permissions:
       contents: read
       packages: write

@@ -18,7 +18,7 @@ permissions:
 jobs:
   verify:
     name: Lint e build
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, home1]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -38,7 +38,7 @@ jobs:
   commit:
     name: Prefisso dei commit
     if: github.event_name == 'push'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, home1]
     steps:
       - env:
           COMMITS: ${{ toJSON(github.event.commits) }}
