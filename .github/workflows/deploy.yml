@@ -23,7 +23,8 @@ permissions:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, home1]
+    # Runner del server riservato ai deploy dei repository pubblici (gruppo deploy-pubblici: accetta solo deploy.yml).
+    runs-on: [home1-pub]
     timeout-minutes: 20
     environment: prod
     concurrency:
